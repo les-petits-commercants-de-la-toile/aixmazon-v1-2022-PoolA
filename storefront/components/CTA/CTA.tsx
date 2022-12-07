@@ -23,13 +23,25 @@ const CTA = (props: Props) => {
 export default CTA;
 
 const StyledButton = styled.button`
-  width: 100%;
+  width: 50%;
   padding: 16px 20px;
   border: none;
-  background: ${(props) => props.theme.colors.secondary};
+  margin-left:25%;
+  margin-right:25%;
+  border-radius: 30px 30px 30px 30px;
+  background: ${(props) => props.theme.colors.yellowBackground};
   color: ${(props) => props.theme.colors.darkText};
-  &:disabled {
-    opacity: 0.4;
-    background: lightgrey;
+  &:disabled { 
+    &:hover {
+      opacity: 0.8; 
+      background: lightgrey; 
+    }
+    opacity: 0.4; 
+    background: lightgrey; 
+  } 
+  &:enabled { 
+    &:hover{
+      background: ${(props) => props.theme.colors.yellowBackgroundHover};
+    }
   }
 `;

@@ -26,6 +26,7 @@ const ProductCard = (props: Props) => {
   };
 
   return (
+    
     <Card>
       <ImageContainer>
         <Image

@@ -53,6 +53,5 @@ const Card = styled.div`
 const ImageContainer = styled.div`
   position: relative;
   width: 100%;
-  /* height: 100%; */
   padding-bottom: 100%; /* forces square aspect ratio */
 `;

@@ -22,20 +22,10 @@ import {
 import { useAppDispatch } from "../../store/hooks";
 import { resetCartState } from "../../store/slices/cartSlice";
 import { useRouter } from "next/router";
+import { calculateCartTotal } from "../../utils/CalculateCartTotal";
 
 interface Props {
   lineItems: LineItem[];
-}
-
-function calculateCartTotal(lineItems: LineItem[]) {
-  if (!lineItems.length) return "0.00€";
-
-  const totalsArray = lineItems.map((lineItem) => {
-    return parseFloat(lineItem.price!) * 100 * lineItem.quantity;
-  });
-  const total = totalsArray.reduce((prev, next) => prev + next);
-  const formattedTotal = `${(total / 100).toFixed(2)}€`;
-  return formattedTotal;
 }
 
 const CardPayment = (props: Props) => {

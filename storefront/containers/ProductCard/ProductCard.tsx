@@ -4,6 +4,7 @@ import { Product } from "../../utils/types/wooCommerceTypes";
 import { useAppDispatch } from "../../store/hooks";
 import { addLineItem } from "../../store/slices/cartSlice";
 import { ProductCardInfo } from "../../components";
+import Link from "next/link";
 
 interface Props {
   product: Product;
@@ -27,19 +28,22 @@ const ProductCard = (props: Props) => {
 
   return (
     <Card>
-      <ImageContainer>
-        <Image
-          src={product.images[0].src}
-          alt={product.images[0].alt}
-          layout="fill"
-          objectFit="cover"
+      <Link href={"product/" + product.id}>
+        <ImageContainer>
+          <Image
+            src={product.images[0].src}
+            alt={product.images[0].alt}
+            layout="fill"
+            objectFit="cover"
+          />
+        </ImageContainer>
+        </Link>
+        <ProductCardInfo
+          name={product.name}
+          price={product.price}
+          onClickFunction={handleIncrement}
         />
-      </ImageContainer>
-      <ProductCardInfo
-        name={product.name}
-        price={product.price}
-        onClickFunction={handleIncrement}
-      />
+
     </Card>
   );
 };

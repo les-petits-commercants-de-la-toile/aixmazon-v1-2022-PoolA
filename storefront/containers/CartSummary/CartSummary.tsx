@@ -1,23 +1,14 @@
 import styled from "styled-components";
 import CartSummaryLine from "../../components/CartSummaryLine/CartSummaryLine";
 import { LineItem } from "../../utils/types/wooCommerceTypes";
+import { calculateCartTotal } from "../../utils/CalculateCartTotal";
 
 interface Props {
   lineItems: LineItem[];
 }
 
 const CartSummary = (props: Props) => {
-  function calculateCartTotal(lineItems: LineItem[]) {
-    if (!lineItems.length) return "0.00€";
-
-    const totalsArray = lineItems.map((lineItem) => {
-      return parseFloat(lineItem.price!) * 100 * lineItem.quantity;
-    });
-    const total = totalsArray.reduce((prev, next) => prev + next);
-    const formattedTotal = `${(total / 100).toFixed(2)}€`;
-    return formattedTotal;
-  }
-
+  
   return (
     <Wrapper>
       <CartSummaryLine

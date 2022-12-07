@@ -27,6 +27,17 @@ interface Props {
   lineItems: LineItem[];
 }
 
+function calculateCartTotal(lineItems: LineItem[]) {
+  if (!lineItems.length) return "0.00€";
+
+  const totalsArray = lineItems.map((lineItem) => {
+    return parseFloat(lineItem.price!) * 100 * lineItem.quantity;
+  });
+  const total = totalsArray.reduce((prev, next) => prev + next);
+  const formattedTotal = `${(total / 100).toFixed(2)}€`;
+  return formattedTotal;
+}
+
 const CardPayment = (props: Props) => {
   const stripe = useStripe();
   const elements = useElements();
@@ -141,7 +152,7 @@ const CardPayment = (props: Props) => {
           />
         </Row>
         <CTA type="submit" disabled={!props.lineItems.length}>
-          PAYER
+          PAYER {calculateCartTotal(props.lineItems)}
         </CTA>
         <ErrorMessage>{error}</ErrorMessage>
       </Form>

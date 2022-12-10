@@ -24,11 +24,18 @@ export default Button;
 
 const StyledButton = styled.button<Props>`
   border: none;
+  border-radius: 30px 30px 30px 30px;
   background-color: ${(props) =>
     props.isClicked
       ? props.theme.colors.secondary
-      : props.theme.colors.primary};
-  color: ${(props) => props.theme.colors.lightText};
+      : props.theme.colors.yellowBackground};
+      
+  :hover{
+    background-color : ${(props) => props.theme.colors.yellowBackgroundHover};
+  }
+
+  color: ${(props) => props.theme.colors.darkText};
   transition: background-color 0.2s ease;
   padding: 10px 20px;
+
 `;

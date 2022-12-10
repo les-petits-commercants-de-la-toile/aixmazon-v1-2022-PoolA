@@ -22,6 +22,7 @@ import {
 import { useAppDispatch } from "../../store/hooks";
 import { resetCartState } from "../../store/slices/cartSlice";
 import { useRouter } from "next/router";
+import { calculateCartTotal } from "../../utils/CalculateCartTotal";
 
 interface Props {
   lineItems: LineItem[];
@@ -141,7 +142,7 @@ const CardPayment = (props: Props) => {
           />
         </Row>
         <CTA type="submit" disabled={!props.lineItems.length}>
-          PAYER
+          PAYER {calculateCartTotal(props.lineItems)}
         </CTA>
         <ErrorMessage>{error}</ErrorMessage>
       </Form>

@@ -55,4 +55,5 @@ const ImageContainer = styled.div`
   position: relative;
   width: 100%;
   padding-bottom: 100%; /* forces square aspect ratio */
+  cursor : pointer;
 `;

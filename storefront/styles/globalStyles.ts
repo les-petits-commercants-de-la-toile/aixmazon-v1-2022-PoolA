@@ -23,6 +23,9 @@ const GlobalStyle = createGlobalStyle`
     font-family: 'Raleway'
   }
 
+  button, h4[href] {
+    cursor: pointer;
+  }
 `;
 
 export default GlobalStyle;

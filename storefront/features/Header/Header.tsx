@@ -10,6 +10,7 @@ const Header = () => {
       <Heading textAlign="center">
       <Image
               src={logo}
+              alt="logo amazin"
             />
 
       </Heading>

@@ -18,9 +18,9 @@ const ProductCard = (props: Props) => {
     name: product.name,
     product_id: product.id,
     quantity: 1,
-    price: product.regular_price,
+    price: product.regular_price === "" ? product.price : product.regular_price,
   };
-
+  
   const handleIncrement = () => {
     dispatch(addLineItem(lineItem));
   };

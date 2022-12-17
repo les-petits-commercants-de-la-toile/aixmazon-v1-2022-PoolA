@@ -28,7 +28,7 @@ const ProductCard = (props: Props) => {
 
   return (
     <Card>
-      <Link href={"product/" + product.id}>
+      <Link href={"products/" + product.id}>
         <ImageContainer>
           <Image
             src={product.images[0].src}
